@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nashive Milagros Olivera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .photo-container {
+            flex-shrink: 0;
+        }
+
+        .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            background-image: url('profile.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .header-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .header-info .profession {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            animation: slideInRight 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            animation: slideInRight 0.8s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-item i {
+            font-size: 1.1em;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: #f8f9ff;
+        }
+
+        .download-btn i {
+            margin-right: 8px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 0.9em;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            border-left-color: #764ba2;
+            padding-left: 25px;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .role {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .experience-item li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-card i {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-card h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-info h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .download-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="photo-container">
+                    <div class="photo-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <h1>Nashive Milagros Olivera</h1>
+                    <div class="profession">Personal de Limpieza | Comercio Internacional</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Felipe Tamareu 5802, CP 3300, Posadas, Misiones</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/5493764XXXXXX" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                    <a href="cv-nashive-olivera.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i>Descargar CV en PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Experiencia Profesional
+                </h2>
+                <div class="experience-item">
+                    <h3>Profesión Actual</h3>
+                    <div class="role">Personal de Limpieza en Casas Particulares</div>
+                </div>
+                <div class="experience-item">
+                    <h3>Experiencia Anterior</h3>
+                    <ul>
+                        <li>Niñera - Cuidado y atención de niños</li>
+                        <li>Cocina diaria - Preparación de alimentos</li>
+                        <li>Atención al cliente en local de ropa</li>
+                        <li>Atención y mantenimiento en el lugar de trabajo</li>
+                        <li>Tareas de orden, reposición, compras y cobros</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Educación y Formación
+                </h2>
+                <div class="education-item">
+                    <h3>Secundario Completo</h3>
+                </div>
+                <div class="education-item">
+                    <h3>Estudiante Actual</h3>
+                    <div class="role">Comercio Internacional y Despacho Aduanero</div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <strong style="color: #667eea; font-size: 1.1em;">Capacitaciones:</strong>
+                    <div style="margin-top: 10px;">
+                        <span class="badge">Contabilidad Básica</span>
+                        <span class="badge">Microsoft Excel</span>
+                        <span class="badge">Microsoft PowerPoint</span>
+                        <span class="badge">Microsoft Word</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-star"></i>
+                    Habilidades
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Atención al Público</strong>
+                        Buen trato con clientes y público en general
+                    </div>
+                    <div class="skill-item">
+                        <strong>Responsabilidad</strong>
+                        Puntual y comprometida con las tareas
+                    </div>
+                    <div class="skill-item">
+                        <strong>Trabajo en Equipo</strong>
+                        Colaboración efectiva con compañeros
+                    </div>
+                    <div class="skill-item">
+                        <strong>Manejo de Efectivo</strong>
+                        Experiencia con medios de cambio y cobros
+                    </div>
+                    <div class="skill-item">
+                        <strong>Aprendizaje Rápido</strong>
+                        Facilidad para aprender tareas nuevas
+                    </div>
+                    <div class="skill-item">
+                        <strong>Orden y Limpieza</strong>
+                        Mantenimiento impecable del lugar de trabajo
+                    </div>
+                    <div class="skill-item">
+                        <strong>Cumplimiento de Normas</strong>
+                        Respeto por protocolos establecidos
+                    </div>
+                    <div class="skill-item">
+                        <strong>Actitud Proactiva</strong>
+                        Iniciativa en la resolución de problemas
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-language"></i>
+                    Idiomas
+                </h2>
+                <div style="margin-top: 15px;">
+                    <span class="badge">Español - Nativo</span>
+                    <span class="badge">Inglés - Básico</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Información Adicional
+                </h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Disponibilidad Horaria</h4>
+                        <p>Lunes a Sábado<br>6:00 - 17:00 hs</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-car"></i>
+                        <h4>Movilidad</h4>
+                        <p>No cuenta con<br>medio de transporte propio</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4>Disponibilidad</h4>
+                        <p>Sin disponibilidad de<br>nueva radicación</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-heart"></i>
+                        <h4>Hobbies</h4>
+                        <p>Escuchar música<br>Caminar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
